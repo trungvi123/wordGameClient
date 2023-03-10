@@ -1,15 +1,15 @@
 import axiosClient,{axiosClientJwt} from "./axiosClient";
 
 
-interface dataSignIn {
-  userName: string;
+export interface dataSignIn {
+  email: string;
   password: string;
 }
 
-interface dataSignUp {
-  userName: string;
+export interface dataSignUp {
+  email: string;
   password: string;
-  comfirmPassword: string;
+  confirmPassword: string;
 }
 
 

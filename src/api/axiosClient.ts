@@ -52,18 +52,20 @@ axiosClientJwt.interceptors.request.use(async (config) => {
   try {
     let date = new Date();
     
-    config.headers.authorization = 'Beaerer '+ getAccessToken()
+    config.headers.authorization = 'Bearer '+ getAccessToken()
+    // console.log(getAccessToken());
+    
     var decodedToken: any = jwt_decode(getAccessToken());
     
     if (decodedToken?.exp < (date.getTime() / 1000)) {
       const data:any = await authApi.refreshToken();
       localStorage.setItem("gameToken", JSON.stringify(data?.accessToken || ""));
     } else {
-      console.log("ch het han");
+      // console.log("ch het han");
     }
   } catch (error) {
-    console.log("loi");
-    console.log(error);
+    console.log("Vui long dang nhap de co trai nghiem tot nhat");
+    // console.log(error);
     
   }
 

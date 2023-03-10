@@ -3,7 +3,7 @@
   height: 48px;
   width: 48px;
   text-align: center;
-  border: 2px solid var(--color-light-blue);
+  border: 2px solid #026DA7;;
   background: none;
   cursor: pointer;
   place-items: center;
@@ -34,3 +34,5 @@
     transform: rotateX(360deg);
   }
 }
+
+

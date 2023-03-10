@@ -1,19 +1,30 @@
-.row {
-    display: flex;   
-    text-align: center;
-    justify-content: center;
-   }
-   .char-row {
-       display: flex;
-       align-items: center;
-   }
-    span {
-       background-color: grey;
-       color: white;
-       font-weight: var(--font-bold);
-       font-size: var(--font-md);
-       margin: 0.25em;
-       border-radius: 4px;
-       padding: 0.25em;
-       cursor: pointer;
-   }
+.keyBoard-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.char-row {
+  display: flex;
+  align-items: center;
+}
+
+.letter-row,
+.key-btn {
+  background-color: #026DA7;
+  color: white;
+  font-weight: var(--font-bold);
+  font-size: var(--font-md);
+  margin: 0.25em;
+  border-radius: 4px;
+  padding: 0.75em;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 820px) {
+  .letter-row,
+  .key-btn {
+    font-weight: var(--font-md);
+    font-size: var(--font-sm);
+    margin: 0.3em;
+  }
+}

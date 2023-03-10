@@ -1,0 +1,27 @@
+.inforWord {
+  position: absolute;
+  top: 200px;
+  right: 50px;
+  z-index: 10;
+  max-width: 500px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.inforWord.showInforWord {
+  animation: showInfor 1s ease-in;
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes showInfor {
+    from {
+      transform: translateX(calc(100% + 50px));
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+     
+    }
+  }

@@ -4,7 +4,7 @@
     width: 300px;
     align-self: center;
     justify-content: center;
-    background-color: var(--color-dark-green);
+    /* background-color: var(--color-dark-green); */
     display: grid;
     column-gap: 0.25em;
     grid-template-columns: repeat(5, 0fr);

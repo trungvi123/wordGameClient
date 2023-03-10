@@ -1,0 +1,52 @@
+.heading {
+  background-color: var(--color-dark-green);
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.heading_transparent {
+  background-color: transparent;
+}
+
+.heading-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  color: var(--color-white);
+}
+
+.heading-link {
+  text-decoration: none;
+  color: unset;
+  display: inline-block;
+}
+
+.heading-nav__left > .heading-link {
+  font-size: var(--font-lg);
+  margin-left: 10px;
+}
+
+.heading-nav__right > .heading-link {
+  font-size: var(--font-lg);
+  margin-right: 10px;
+}
+
+.signIn-btn {
+  background-color: transparent !important;
+  border: none !important;
+  font-size: var(--font-lg) !important;
+}
+
+.inputField { 
+    width: 300px !important;
+}
+
+.changeStatus {
+    cursor: pointer;
+}
+
+.heading-link__dropdown:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+}

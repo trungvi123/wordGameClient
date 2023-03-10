@@ -1,0 +1,50 @@
+.floating-btn1 {
+  position: absolute !important;
+  bottom: 90px;
+  left: 15px;
+  filter: brightness(80%);
+}
+
+.floating-btn2 {
+  position: absolute !important;
+  bottom: 15px;
+  left: 15px;
+  filter: brightness(80%);
+}
+
+.floating-btn3 {
+  position: absolute !important;
+  bottom: 90px;
+  right: 15px;
+  filter: brightness(80%);
+}
+
+.currentScore {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+@media only screen and (max-height: 800px) {
+  .floating-btn1,
+  .floating-btn3 {
+    bottom: 70px;
+  }
+  .floating-btn2 {
+    bottom: 8px;
+  }
+}
+
+@media only screen and (max-height: 700px) {
+    .floating-btn2 {
+        position: absolute !important;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        filter: brightness(80%);
+      }
+
+      .floating-btn1,.floating-btn3 {
+        bottom: 5px;
+      }
+  }
