@@ -28,9 +28,9 @@ interface wtoken {
 }
 
 function Home() {
-  const [indxBg, setIndxBg] = useState(0);
-  const [showBoard, setShowBoard] = useState(false);
-  const [showInforWord, setShowInforWord] = useState(false);
+  const [indxBg, setIndxBg] = useState<number>(0);
+  const [showBoard, setShowBoard] = useState<boolean>(false);
+  const [showInforWord, setShowInforWord] = useState<boolean>(false);
 
   const getWord = useSelector((state: IRootState) => state.board.getWord);
   const crrrow = useSelector((state: IRootState) => state.board.currentRow);

@@ -23,8 +23,8 @@ import { Email } from "@mui/icons-material";
 const cx = classNames.bind(style);
 
 function DonateWord() {
-  const [message, setMessage] = useState("");
-  const [testWord, setTestWord] = useState("");
+  const [message, setMessage] = useState<string>("");
+  const [testWord, setTestWord] = useState<string>("");
 
   const dispatch = useDispatch();
 

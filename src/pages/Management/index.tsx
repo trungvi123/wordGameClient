@@ -11,7 +11,7 @@ export default function Management() {
   }
 
   const [listPending, setListPending] = useState([]);
-  const [changeList,setChangeList] = useState(false)
+  const [changeList,setChangeList] = useState<boolean>(false)
   const dispatch = useDispatch();
 
   useEffect(() => {
