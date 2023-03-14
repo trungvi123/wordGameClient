@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import { Fab } from "@mui/material";
 import {
   Wallpaper,
   MilitaryTech,
   Info,
   EmojiEvents,
+  Lightbulb,
 } from "@mui/icons-material";
 import jwtDecode from "jwt-decode";
 
@@ -17,9 +18,12 @@ import BackgrClip from "../../components/BackgrClip";
 import wordApi, { upms } from "../../api/wordApi";
 import InforWord from "../../components/InforWord";
 import { IRootState } from "../../components/interface";
-import { setAuthor, setAuthorNote, setWord } from "../../redux/boardSlice";
+import { setAuthor, setAuthorNote } from "../../redux/boardSlice";
 import "./Home.css";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import Guild from "../../components/Guild";
+import wordContext from '../../storeContext/WordContext.js'
+
 
 interface wtoken {
   w: string;
@@ -29,8 +33,10 @@ interface wtoken {
 
 function Home() {
   const [indxBg, setIndxBg] = useState<number>(0);
+
   const [showBoard, setShowBoard] = useState<boolean>(false);
   const [showInforWord, setShowInforWord] = useState<boolean>(false);
+  const [showGuild, setShowGuild] = useState<boolean>(false);
 
   const getWord = useSelector((state: IRootState) => state.board.getWord);
   const crrrow = useSelector((state: IRootState) => state.board.currentRow);
@@ -38,6 +44,8 @@ function Home() {
   const ls = useSelector((state: IRootState) => state.board.ls);
   const ms = useSelector((state: IRootState) => state.board.ms);
   const _id = useSelector((state: IRootState) => state.auth.id);
+
+  const wordContextt = useContext(wordContext)
 
   const dispatch = useDispatch();
 
@@ -57,12 +65,13 @@ function Home() {
         let tk = res.wtoken.replace("fghjawawpznd", "");
         tk = tk.replace("SizurTePdhkzvE", "");
         const word: wtoken = jwtDecode(tk);
-        dispatch(setWord(word.w.toUpperCase()));
+        wordContextt.setWord(word.w.toUpperCase())
         dispatch(setAuthor(word.author));
         dispatch(setAuthorNote(word.authorNote));
       }
     };
     getWord();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getWord]);
 
   useEffect(() => {
@@ -82,7 +91,9 @@ function Home() {
       };
       getCk();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ms]);
+
 
   return (
     <div style={{ height: "100vh" }}>
@@ -96,7 +107,7 @@ function Home() {
       <InforWord showInfor={showInforWord}></InforWord>
       <ScoreBoard showBoard={showBoard}></ScoreBoard>
       <BackgrClip indexBg={indxBg}></BackgrClip>
-
+      <Guild showGuild={showGuild}></Guild>
       <OverlayTrigger
         placement={"right"}
         overlay={<Tooltip id={`tooltip-right`}>Rank</Tooltip>}
@@ -129,6 +140,18 @@ function Home() {
           onClick={() => setShowInforWord(!showInforWord)}
         >
           <Info />
+        </Fab>
+      </OverlayTrigger>
+      <OverlayTrigger
+        placement={"left"}
+        overlay={<Tooltip id={`tooltip-left`}>Guild</Tooltip>}
+      >
+        <Fab
+          className="floating-btn4"
+          color="info"
+          onClick={() => setShowGuild(!showGuild)}
+        >
+          <Lightbulb />
         </Fab>
       </OverlayTrigger>
     </div>

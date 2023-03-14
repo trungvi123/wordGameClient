@@ -21,6 +21,13 @@
   filter: brightness(80%);
 }
 
+.floating-btn4 {
+  position: absolute !important;
+  bottom: 25px;
+  right: 15px;
+  filter: brightness(80%);
+}
+
 .currentScore {
   display: flex;
   justify-content: center;

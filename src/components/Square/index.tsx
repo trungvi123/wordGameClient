@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import classNames from "classnames/bind";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { IRootState } from "../interface";
 
-import wordApi, { upms } from "../../api/wordApi";
 import style from "./Square.module.css";
-import { setMs } from "../../redux/boardSlice";
+import WordContext from "../../storeContext/WordContext";
 
 const cx = classNames.bind(style);
 interface IProps {
@@ -20,19 +19,16 @@ function Square(props: IProps) {
 
   const position = useSelector((state: IRootState) => state.board.position);
   const currentRow = useSelector((state: IRootState) => state.board.currentRow);
-  const word = useSelector((state: IRootState) => state.board.word);
-  const ls = useSelector((state: IRootState) => state.board.ls);
-  const ms = useSelector((state: IRootState) => state.board.ms);
-  const _id = useSelector((state: IRootState) => state.auth.id);
+
+  // use Context
+  const wordContextt = useContext(WordContext);
 
   // State
   const [correct, setCorrect] = useState<boolean>(false);
   const [almost, setAlmost] = useState<boolean>(false);
   const [wrong, setWrong] = useState<boolean>(false);
 
-  const dispatch = useDispatch();
-
-  let correctWord: string = word;
+  let correctWord: string = wordContextt.word;
   let arrCorrectWord: string[] = [];
 
   for (var i = 0; i < correctWord.length; i++) {
@@ -53,11 +49,8 @@ function Square(props: IProps) {
       setWrong(false);
       setCorrect(false);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
-
-
-
-  
 
   return (
     <div

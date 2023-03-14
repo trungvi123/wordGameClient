@@ -6,7 +6,6 @@ export interface IBoardState {
   ls: number;
   ms: number;
   getWord: boolean;
-  word: string;
   author: string;
   authorNote: string;
 }

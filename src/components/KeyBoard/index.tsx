@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import wordApi from "../../api/wordApi";
 
 import {
   minusPosition,
@@ -13,6 +12,7 @@ import {
   setMs,
 } from "../../redux/boardSlice";
 import { setToast } from "../../redux/toastSlice";
+import WordContext from "../../storeContext/WordContext";
 import { IRootState } from "../interface";
 import Key from "../Key";
 import "./KeyBoard.css";
@@ -29,12 +29,11 @@ function KeyBoard() {
   const currentRow = useSelector((state: IRootState) => state.board.currentRow);
   const ls = useSelector((state: IRootState) => state.board.ls);
   const ms = useSelector((state: IRootState) => state.board.ms);
-  const word = useSelector((state: IRootState) => state.board.word);
+  const wordContextt = useContext(WordContext);
 
-  const iduser = useSelector((state: IRootState) => state.auth.id);
 
   const dispatch = useDispatch();
-  let correctWord: string = word;
+  let correctWord: string = wordContextt.word;
 
   const clickBack = () => {
     if (Math.floor((position - 1) / 5) < currentRow) return; // chỉ xóa trên dòng chưa bấm enter

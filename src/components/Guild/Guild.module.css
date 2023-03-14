@@ -1,0 +1,42 @@
+.guild {
+  position: absolute;
+  top: 300px;
+  right: 50px;
+  z-index: 10;
+  max-width: 500px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.guild.showGuild {
+  animation: showGuildAni 1s ease-in;
+  visibility: visible;
+  opacity: 1;
+}
+
+@keyframes showGuildAni {
+  from {
+    transform: translateX(calc(100% + 50px));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.squareColor {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  /* vertical-align: baseline; */
+}
+
+.squareColor.green {
+  background-color: rgb(3, 164, 100);
+}
+.squareColor.yellow {
+  background-color: rgb(255, 213, 0);
+}
+.squareColor.gray{
+  background-color: rgb(72, 72, 72);
+}

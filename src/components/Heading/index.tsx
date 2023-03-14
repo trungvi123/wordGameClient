@@ -24,7 +24,7 @@ function Heading(props: IProps) {
   const { type } = props;
   const [signIn, setSignIn] = useState(true);
   const [checkConfirm, setConfirm] = useState(true);
-
+  
   const dispatch = useDispatch();
 
   const currentEmail = useSelector((e: IRootState) => e.auth.email);

@@ -38,7 +38,6 @@ const initialState = {
   enterClick: false,
   ls: 0,
   ms: 0,
-  word: "",
   author:"",
   authorNote:"",
   getWord:false
@@ -75,9 +74,6 @@ const boardSlice = createSlice({
     setMs: (state, action) => {
       state.ms = action.payload;
     },
-    setWord: (state, action) => {
-      state.word = action.payload;
-    },
     setAuthor: (state, action) => {
       state.author = action.payload;
     },
@@ -97,7 +93,6 @@ export const {
   plusRow,
   setEnterClick,
   setLs,
-  setMs,
-  setWord,setAuthor,setAuthorNote,setInitialBoard,setGetWord
+  setMs,setAuthor,setAuthorNote,setInitialBoard,setGetWord
 } = boardSlice.actions
 export default boardSlice.reducer;
