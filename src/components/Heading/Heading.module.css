@@ -27,7 +27,7 @@
   margin-left: 10px;
 }
 
-.heading-nav__right > .heading-link {
+.heading-nav__right .heading-link {
   font-size: var(--font-lg);
   margin-right: 10px;
 }
@@ -38,15 +38,38 @@
   font-size: var(--font-lg) !important;
 }
 
-.inputField { 
-    width: 300px !important;
+.inputField {
+  width: 300px !important;
 }
 
 .changeStatus {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .heading-link__dropdown:hover {
   background-color: gainsboro;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+  .heading-nav__left > .heading-link {
+    font-size: var(--font-smd);
+    margin-left: 10px;
+  }
+
+  .heading-nav__right .heading-link {
+    font-size: var(--font-smd);
+    margin-right: 10px;
+  }
+
+  .signIn-btn {
+    font-size: var(--font-smd) !important;
+    width: 85px;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* số dòng hiển thị */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

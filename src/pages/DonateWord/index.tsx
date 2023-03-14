@@ -106,7 +106,7 @@ function DonateWord() {
   };
 
   return (
-    <>
+    <div className={cx('wrapper')}>
       <Heading type=""></Heading>
       <Container className={cx("d-word", "d-flex", "justify-content-center")}>
         <div className={cx("form-container", "w-75")}>
@@ -114,7 +114,7 @@ function DonateWord() {
             Nơi bạn có thể đóng góp vốn từ vựng tiếng Anh của bạn :3
           </h2>
 
-          <Form className="mb-5">
+          <Form >
             <Row className="align-items-center">
               <Col xs="auto">
                 <Form.Control
@@ -132,7 +132,7 @@ function DonateWord() {
                 </Button>
               </Col>
             </Row>
-            <p className="text-left">
+            <p className={cx('text-left','advise-mess')}>
               Cơ sở dữ liệu của chúng tôi có thể đã có từ vựng mà bạn muốn đóng
               góp, bạn nên kiểm tra từ trước khi gửi nhé!
             </p>
@@ -213,7 +213,7 @@ function DonateWord() {
           overlay={<Tooltip id={`tooltip-right`}>Contact me!</Tooltip>}
         >
           <Fab
-            className="floating-btn1"
+            className={cx('floating-email')}
             color="info"
             href="mailto:itkhongxau@gmail.com"
           >
@@ -221,7 +221,7 @@ function DonateWord() {
           </Fab>
         </OverlayTrigger>
       </Container>
-    </>
+    </div>
   );
 }
 

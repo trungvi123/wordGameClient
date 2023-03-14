@@ -12,7 +12,7 @@ function BackgrClip(props:IProps) {
 
     return (
     <div>
-        <video src={arrClip[indexBg]} autoPlay muted loop className="video-bg"></video>
+        <video playsInline={true} src={arrClip[indexBg]} autoPlay muted loop className="video-bg"></video>
     </div>
   )
 }

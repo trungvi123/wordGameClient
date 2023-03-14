@@ -1,7 +1,7 @@
 .guild {
   position: absolute;
   top: 300px;
-  right: 50px;
+  left: 50px;
   z-index: 10;
   max-width: 500px;
   opacity: 0;
@@ -16,7 +16,19 @@
 
 @keyframes showGuildAni {
   from {
-    transform: translateX(calc(100% + 50px));
+    transform: translateX(calc(-100% - 50px));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes showGuildAni2 {
+  from {
+    transform: translateX(calc(-100%-10px));
     opacity: 0;
   }
   to {
@@ -39,4 +51,14 @@
 }
 .squareColor.gray{
   background-color: rgb(72, 72, 72);
+}
+
+@media only screen and (max-width: 500px) {
+  .guild {
+    left: 10px;
+  }
+
+  .guild.showGuild {
+    animation: showGuildAni2 1s ease-in;
+  }
 }

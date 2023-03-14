@@ -1,12 +1,20 @@
-.board{
-    color: white;
-    height: 300px;
-    width: 300px;
-    align-self: center;
-    justify-content: center;
-    /* background-color: var(--color-dark-green); */
-    display: grid;
-    column-gap: 0.25em;
-    grid-template-columns: repeat(5, 0fr);
-    margin-bottom:2em;
+.board {
+  color: white;
+  height: 300px;
+  width: 300px;
+  align-self: center;
+  justify-content: center;
+  /* background-color: var(--color-dark-green); */
+  display: grid;
+  column-gap: 0.25em;
+  grid-template-columns: repeat(5, 0fr);
+  margin-bottom: 2em;
+}
+
+@media only screen and (max-height: 700px) {
+  .board {
+    column-gap: 0.15em;
+    margin-bottom: 0.5em;
+    height: 250px;
+  }
 }

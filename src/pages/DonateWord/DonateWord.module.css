@@ -4,3 +4,21 @@
 .d-word {
     height: 100vh;
 }
+
+
+@media only screen and (max-height: 700px) {
+    .advise-mess {
+        display: none;
+    }
+}
+
+.floating-email {
+    position: fixed !important;
+    bottom: 40px;
+    left: 10px;
+}
+
+.wrapper {
+    height: 100vh !important;
+    overflow-y: scroll;
+}

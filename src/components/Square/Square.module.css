@@ -3,7 +3,7 @@
   height: 48px;
   width: 48px;
   text-align: center;
-  border: 2px solid #026DA7;;
+  border: 2px solid #026da7;
   background: none;
   cursor: pointer;
   place-items: center;
@@ -26,6 +26,14 @@
   background-color: rgb(72, 72, 72);
 }
 
+@media only screen and (max-height: 700px) {
+  .square {
+    height: 36px;
+    width: 36px;
+    font-size: 1.4rem;
+  }
+}
+
 @keyframes flip {
   0% {
     transform: rotateX(0);
@@ -34,5 +42,3 @@
     transform: rotateX(360deg);
   }
 }
-
-

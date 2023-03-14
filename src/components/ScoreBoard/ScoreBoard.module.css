@@ -31,3 +31,10 @@
   left: 0;
   position: absolute !important;
 }
+
+@media only screen and (max-width: 500px) {
+  .scoreBoard {
+    left: 10px;
+  }
+
+}

@@ -1,11 +1,12 @@
 .inforWord {
   position: absolute;
   top: 200px;
-  right: 50px;
+  left: 50px;
   z-index: 10;
   max-width: 500px;
   opacity: 0;
   visibility: hidden;
+  word-break: break-all;
 }
 
 .inforWord.showInforWord {
@@ -15,13 +16,43 @@
 }
 
 @keyframes showInfor {
-    from {
-      transform: translateX(calc(100% + 50px));
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-     
-    }
+  from {
+    transform: translateX(calc(-100% - 50px));
+    opacity: 0;
   }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showInfor2 {
+  from {
+    transform: translateX(calc(-100% - 10px));
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .inforWord {
+    max-width: 300px ;
+    left: 10px;
+    font-size: var(--font-sm) ;
+  }
+
+  .inforWord th {
+    font-size: var(--font-sm) ;
+
+  }
+  .inforWord td {
+    min-width: 80px;
+  }
+
+  .inforWord.showInforWord {
+    animation: showInfor2 1s ease-in;
+  }
+}
