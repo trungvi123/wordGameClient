@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Routes, Route } from "react-router-dom";
 import { publicRoutes, privateRoutes } from "./routes";
 import "./App.css";
@@ -6,6 +6,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ToastComp from "./components/Toast";
 import { useSelector } from "react-redux";
 import { IRootState } from "./components/interface";
+
+
 
 function App() {
   const isAdmin = useSelector((e:IRootState)=>e.auth.isAdmin)

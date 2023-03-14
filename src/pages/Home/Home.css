@@ -1,20 +1,22 @@
 .floating-btn1 {
   position: absolute !important;
-  bottom: 90px;
+  bottom: 100px;
   left: 15px;
   filter: brightness(80%);
 }
 
+
+
 .floating-btn2 {
   position: absolute !important;
-  bottom: 15px;
+  bottom: 25px;
   left: 15px;
   filter: brightness(80%);
 }
 
 .floating-btn3 {
   position: absolute !important;
-  bottom: 90px;
+  bottom: 100px;
   right: 15px;
   filter: brightness(80%);
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Home, DonateWord, Management } from "../pages";
+import { Home, DonateWord, Management,MyWord } from "../pages";
 
 interface IRoutes {
   path: string;
@@ -9,6 +9,8 @@ interface IRoutes {
 export const publicRoutes: IRoutes[] = [
   { path: "/", element: Home },
   { path: "/dword", element: DonateWord },
+  { path: "/myWord", element: MyWord },
+  
 ];
 
 export const privateRoutes = [{ path: "/management", element: Management }];

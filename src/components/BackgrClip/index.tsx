@@ -8,7 +8,7 @@ interface IProps {
 function BackgrClip(props:IProps) {
   const {indexBg} = props
   
-  const arrClip = [yogi,anBa,anhTrang,aoThuat,saMac,anime1,anime2,bg2D,bg3D]
+  const arrClip = [anime1,yogi,anBa,anhTrang,aoThuat,saMac,anime2,bg2D,bg3D]
 
     return (
     <div>

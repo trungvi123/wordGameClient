@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
@@ -87,7 +88,7 @@ export default function Management() {
           <tr>
             <th>#</th>
             <th>Author</th>
-            <th>Word</th>
+            <th>Word</th> 
             <th>Note</th>
             <th>Management</th>
           </tr>

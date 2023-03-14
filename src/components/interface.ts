@@ -5,16 +5,20 @@ export interface IBoardState {
   enterClick: boolean;
   ls: number;
   ms: number;
-  getWord:boolean
+  getWord: boolean;
   word: string;
-  author:string,
-  authorNote:string
+  author: string;
+  authorNote: string;
 }
-
+export interface IWordContributed {
+  word:string,
+  authorNote:string
+}   
 export interface IAuthState {
   email: string;
   id: string;
   isAdmin: boolean;
+  wordContributed: IWordContributed[];
 }
 
 export interface IToastState {

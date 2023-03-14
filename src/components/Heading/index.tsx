@@ -7,7 +7,7 @@ import jwt_decode from "jwt-decode";
 
 import { Link } from "react-router-dom";
 import authApi, { dataSignIn, dataSignUp } from "../../api/authApi";
-import { setEmail, setId, setInitial, setIsAdmin } from "../../redux/authSlice";
+import { setEmail, setId, setInitial, setIsAdmin, setWordContributed } from "../../redux/authSlice";
 import { setMs } from "../../redux/boardSlice";
 import { setToast } from "../../redux/toastSlice";
 import { IRootState } from "../interface";
@@ -29,6 +29,7 @@ function Heading(props: IProps) {
 
   const currentEmail = useSelector((e: IRootState) => e.auth.email);
   const isAdmin = useSelector((e: IRootState) => e.auth.isAdmin);
+  const ms = useSelector((e: IRootState) => e.board.ms);
 
   const currentId = useSelector((e: IRootState) => e.auth.id);
 
@@ -53,7 +54,9 @@ function Heading(props: IProps) {
           "gameToken",
           JSON.stringify(signInApi?.accessToken || "")
         );
+    
         dispatch(setMs(signInApi?.ms));
+        dispatch(setWordContributed(signInApi?.wordContributed));
         dispatch(setEmail(signInApi?.email));
         dispatch(setId(signInApi?._id));
         dispatch(
@@ -189,11 +192,17 @@ function Heading(props: IProps) {
                         placeholder="Password"
                         {...register("pass", {
                           required: true,
+                           minLength:5
                         })}
                       />
                       {errors.pass?.type === "required" && (
                         <p className="text-danger ml-2">
                           Vui lòng nhập mật khẩu!
+                        </p>
+                      )}
+                      {errors.pass?.type === "minLength" && (
+                        <p className="text-danger ml-2">
+                          Vui lòng nhập mật khẩu có ít nhất 5 kí tự!
                         </p>
                       )}
                     </Form.Group>
@@ -252,7 +261,7 @@ function Heading(props: IProps) {
               <Dropdown.Menu>
                 <div className={cx("p-2")}>
                   <Dropdown.ItemText>
-                    <b>Điểm cao nhất: 1000000</b>
+                    <b>Điểm cao nhất: {ms}</b>
                   </Dropdown.ItemText>
 
                   <Link

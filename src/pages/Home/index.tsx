@@ -52,7 +52,8 @@ function Home() {
   useEffect(() => {
     const getWord = async () => {
       const res: any = await wordApi.getWord();
-      if (res.state === "success") {
+
+      if (res && res.state === "success") {
         let tk = res.wtoken.replace("fghjawawpznd", "");
         tk = tk.replace("SizurTePdhkzvE", "");
         const word: wtoken = jwtDecode(tk);
@@ -84,7 +85,7 @@ function Home() {
   }, [ms]);
 
   return (
-    <div className="h-100">
+    <div style={{ height: "100vh" }}>
       <Heading type="transparent"></Heading>
       <div className="currentScore">
         <h3>Scores: {ls}</h3>

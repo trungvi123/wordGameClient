@@ -40,15 +40,27 @@ function DonateWord() {
       word: data.word,
       authorNote: message,
     };
-    const res: any = await wordApi.createPendingWord(totalData);
+    if (data.word.trim().length === 5) {
+      const res: any = await wordApi.createPendingWord(totalData);
 
-    if (res?.state === "success") {
+      if (res?.state === "success") {
+        dispatch(
+          setToast({
+            type: "success",
+            heading: "Cảm ơn bạn đã đóng góp",
+            content:
+              "Chúng tôi sẽ xem xét, thêm từ mà bạn đã đóng góp sớm nhất có thể",
+            show: true,
+          })
+        );
+      }
+    }else {
       dispatch(
         setToast({
-          type: "success",
-          heading: "Cảm ơn bạn đã đóng góp",
+          type: "danger",
+          heading: "Thông báo",
           content:
-            "Chúng tôi sẽ xem xét, thêm từ mà bạn đã đóng góp sớm nhất có thể",
+            "Vui lòng nhập từ có 5 kí tự!",
           show: true,
         })
       );
@@ -60,7 +72,7 @@ function DonateWord() {
   const handleTestWord = async () => {
     if (testWord.length === 5) {
       const res: any = await wordApi.testWord({ word: testWord });
-      
+
       if (res?.message === "already") {
         dispatch(
           setToast({
@@ -159,6 +171,7 @@ function DonateWord() {
                 placeholder="Your word"
                 {...register("word", {
                   required: true,
+                  
                   maxLength: 5,
                   minLength: 5,
                 })}
@@ -199,7 +212,11 @@ function DonateWord() {
           placement={"right"}
           overlay={<Tooltip id={`tooltip-right`}>Contact me!</Tooltip>}
         >
-          <Fab className="floating-btn1" color="info" href="mailto:itkhongxau@gmail.com">
+          <Fab
+            className="floating-btn1"
+            color="info"
+            href="mailto:itkhongxau@gmail.com"
+          >
             <Email />
           </Fab>
         </OverlayTrigger>

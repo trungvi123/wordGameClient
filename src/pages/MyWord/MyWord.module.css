@@ -1,0 +1,10 @@
+.myWord__container {
+    
+    /* max-height: 500px !important; */
+    overflow: scroll;
+}
+
+.myWord {
+    height: 100vh !important;
+    overflow-y: scroll;
+}

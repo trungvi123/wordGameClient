@@ -31,7 +31,9 @@ export default function ScoreBoard(props: IProps) {
   useEffect(() => {
     const fectTopUser = async () => {
       const res: any = await wordApi.getTopUsers();
-      setTopUsers(res.data);
+      if(res && res.data){
+        setTopUsers(res.data);
+      }
     };
     fectTopUser();
   }, [refreshList]);
